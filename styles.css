@@ -1,136 +1,183 @@
-body {
-	  background: linear-gradient(45deg, hsl(190, 100%, 10%), hsl(210, 20%, 30%), hsl(260, 100%, 20%), hsl(220, 100%, 40%));
-	  background-size: 400% 400%;
-	  animation: gradient 10s ease-in-out infinite;
-	  font-family: sans-serif, Arial;
-	  font-size: 12*32%;
-	  color: #ffffff;
-	  margin: 0;
-	  padding: 0;
-	}
-	@keyframes gradient {
-	  0% {
-	    background-position: 0% 80%;
-	  }
-	  50% {
-	    background-position: 80% 50%;
-	  }
-	  100% {
-	    background-position: 0% 50%;
-	  }
-	}
-
-	header 
-	{
-  	  color: Orange;
-	  font-family: Algerian;
-  	  display: flex;
-	  flex-direction: column;
-  	  align-items: center;
-	  justify-content: center;
-	  padding: 1.33% 2.666%;
-	  background-repeat: no-repeat;
-	  background-size: cover;
-	  height: 80%;
-	}
-
-	header h1
-	{
-	  margin: 0;
-	  font-size: 12*70.67%;
-	  font-family: Algerian;
-	  text-align: center;
-	}
-
-	header nav Buttons {
-	  display: flex;
-	  list-style: none;
-	  margin: 0;
-	  padding: 1.333%;
-	}
-
-	header nav a {
-	  color: #fff;
-	  text-decoration: none;
-	  padding: 1.333%;
-	}
-
-	main {
-        align-items: center;
-	  display: flex;
-	  color: white;
-	  flex-wrap: wrap;
-	  padding: 1.33% 2.666%;
-	  /* padding: 2em; */
-	}
-	main h1{
-	  font-family: Algerian;
-	  color: Orange;
-	}
-
-    
-
-	.card {
-	  background-color: #f2f2f2;
-	  box-shadow: 0 0.133% 0.3333% rgba(0, 0, 0, 0.1);
-	  margin: 1em;
-	  width: calc(33.33% - 2em);
-	}
-
-	.card h2 {
-	  margin: 0;
-	  padding: 1em;
-	}
-
-	.card p {
-	  padding: 1.33% 2.666%;
-
-	  /* padding: 1em; */
-      font-size: 12*24%;
-	}
-
-	footer {
-	  background-color: #333;
-	  color: #fff;
-	  display: flex;
-	  justify-content: center;
-	  padding: 1em;
-	}
-	.buttons {
-      vertical-align: middle;
-	  display: flex;
-	  justify-content: center;
-	  margin-right: 0.6666%;
-	  margin-left: 0.6666%;
-	}
-
-	.button {
-	  display: inline-block;
-	  font-size: 12*24%;
-	  margin-right: 0.6667%;
-	  margin-left: 0.66667%;
-	  padding: 0.6667% 1.3333%;
-	  background-color: #4CAF50;
-	  color: orange;
-	  border: 0.66667%;
-	  border-radius: 0.3333%;
-	  text-align: center;
-	}
-	img {
-	  clear: right;
-	  margin: 0 0 0.66667% 0.66667%;
-	}
-	@media only screen and (max-width: 40%) {
-	  header h1 {
-	    font-size: 12*40%;
-	  }
-	  main {
-	    padding: 1em;
-	  }
-	  .card {
-	    width: 100%;
-    }
-    
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-padding);
 }
 
-	    
+nav {
+  background: linear-gradient(0deg, transparent,hsl(260, 100%, 20%), hsl(220, 100%, 15%),hsl(220, 100%, 10%));
+  text-align: center;
+  padding: 30px 0;
+  position: sticky; 
+  top: 0;
+  width: 100%; 
+  height: fit-content;
+  z-index: 1000;
+}
+
+body {
+    background: linear-gradient(45deg, hsl(180, 100%, 10%), hsl(210, 20%, 30%), hsl(260, 100%, 20%), hsl(220, 100%, 15%));
+    background-size: 400% 400%;
+    animation: gradient 10s ease-in-out infinite;
+    font-family: sans-serif, Arial;
+    font-size: 12*32%;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 80%;
+    }
+    50% {
+      background-position: 20% 80%;
+    }
+    50% {
+      background-position: 80% 50%;
+    }
+    75% {
+      background-position: 20% 50%;
+    }
+    100% {
+      background-position: 0% 80%;
+    }
+  }
+
+  section {
+    padding-bottom: var(--scroll-padding);
+  }
+  .scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s;
+    z-index: 1000;
+  }
+  
+  .scroll-to-top i {
+    font-size: 24px;
+  }
+
+  main {
+    align-items: center;
+    display: flex;
+    color: white;
+    flex-wrap: wrap;
+    padding: 1.33% 2.666%;
+    /* padding: 2em; */
+  }
+  main h1{
+    color: Orange;
+  }
+
+  .profile-image {
+    float: right;
+    width: 15%;
+    height: auto;
+    margin-left: 20px; /* Adjust the margin as needed */
+}
+
+  .card {
+    background-color: transparent;
+    box-shadow: 0 0.133% 0.3333% rgba(0, 0, 0, 0.1);
+    margin: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    height: 100%;
+}
+
+.contact-content {
+    text-align: center;
+    padding: 1.33% 2.666%;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.252);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+    gap: 10px;
+  }
+
+.button {
+  position: sticky;
+    display: inline-block;
+    font-size: 14px * 24%; /* Increase font size for larger buttons */
+    padding: 20px; /* Adjust padding for the buttons */
+    background-color: transparent; /* Change background color to transparent */
+    color: white;
+    border: 2px solid #4CAF50; 
+    border-radius: 20px; 
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: fit-content;
+}
+
+.button a {
+  position: sticky;
+    text-decoration: none !important;
+    color: white;
+}
+
+.button:hover {
+    background-color: orange;
+    color: white;
+    border: none;
+}
+
+.contact-content .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; 
+  gap: 10px;
+  
+}
+
+.contact-content .button {
+  display: inline-block;
+  font-size: 24px * 24%;
+  padding: 10px 20px;
+  background-color:  #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content; 
+}
+
+.contact-content .button a {
+  text-decoration: none !important;
+  color: white;
+}
+
+.contact-content .button:hover {
+  background-color: orange;
+  color: white;
+}
+
+  img {
+    clear: right;
+    margin: 0 0 0.66667% 0.66667%;
+  }      
