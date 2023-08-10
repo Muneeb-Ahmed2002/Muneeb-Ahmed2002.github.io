@@ -1,205 +1,45 @@
-html{
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--scroll-padding*2);
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const navigationheight = document.querySelector('nav').offsetHeight;
+    document.documentElement.style.setProperty('--scroll-padding', navigationheight + 'px');
+    document.documentElement.style.setProperty('--reverse-padding', (navigationheight * -1) + 'px');
 
-nav {
-  background: linear-gradient(0deg, hsla(260, 100%, 20%, 0.049),  hsl(260, 100%, 20%), hsl(220, 100%, 15%),hsl(220, 100%, 10%));
-  text-align: center;
-  padding: 30px 0;
-  position: fixed; 
-  top: 0;
-  width: 100%; 
-  height: fit-content;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  text-shadow: black;
-}
+    const sections = document.querySelectorAll("section"); // Get all sections
+    const navLinks = document.querySelectorAll("nav .button"); // Get all navigation links
 
-nav .buttons {
-  /* ... existing styles ... */
-  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-}
+    // Scroll event listener for updating active link
+    window.addEventListener("scroll", () => {
+        let currentSection = "";
 
-body {
-    background: linear-gradient(45deg, hsl(180, 100%, 10%), hsl(210, 20%, 30%), hsl(260, 100%, 20%), hsl(220, 100%, 15%));
-    background-size: 400% 400%;
-    animation: gradient 10s ease-in-out infinite;
-    font-family: sans-serif, Arial;
-    font-size: 12*32%;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-  }
-  @keyframes gradient {
-    0% {
-      background-position: 0% 80%;
-    }
-    50% {
-      background-position: 20% 80%;
-    }
-    50% {
-      background-position: 80% 50%;
-    }
-    75% {
-      background-position: 20% 50%;
-    }
-    100% {
-      background-position: 0% 80%;
-    }
-  }
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - navigationheight;
+            const sectionBottom = sectionTop + section.clientHeight;
 
-  section {
-    padding-top: var(--scroll-padding);
-  }
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                currentSection = section.getAttribute("id");
+            }
+        });
 
-  section .card{
-    padding-bottom: none;
-    padding-top: var(--reverse-padding);
-  }
-  .scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s;
-    z-index: 1000;
-  }
-  
-  .scroll-to-top i {
-    font-size: 24px;
-  }
+        // Update active link based on current section
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${currentSection}`) {
+                link.classList.add("active");
+            }
+        });
+    });
 
-  main {
-    align-items: center;
-    display: flex;
-    color: white;
-    flex-wrap: wrap;
-    padding: 1.33% 2.666%;
-    /* padding: 2em; */
-  }
-  main h1{
-    color: Orange;
-  }
-  .home-image {
-    float: left;
-    width: 20%;
-    height: auto;
-    margin-left: 20px; /* Adjust the margin as needed */
-}
+    // Scroll to top button
+    const scrollToTopButton = document.querySelector(".scroll-to-top");
 
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            scrollToTopButton.style.opacity = "1";
+        } else {
+            scrollToTopButton.style.opacity = "0";
+        }
+    });
 
-  .card {
-    background-color: transparent;
-    box-shadow: 0 0.133% 0.3333% rgba(0, 0, 0, 0.1);
-    margin: 1em;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    height: 100%;
-    padding-top: var(--reverse-padding);
-}
-
-.contact-content {
-    text-align: center;
-    padding: 1.33% 2.666%;
-}
-
-footer {
-    background-color: rgba(0, 0, 0, 0.252);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px; 
-    gap: 2em;
-    width: fit-content;
-    height: fit-content;
-  }
-
-.button {
-  position: sticky;
-    display: inline-block;
-    font-size: 14px * 24%; /* Increase font size for larger buttons */
-    padding: 20px; /* Adjust padding for the buttons */
-    background-color: transparent; /* Change background color to transparent */
-    color: white;
-    border: 2px solid #4CAF50; 
-    border-radius: 20px; 
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    width: fit-content;
-    height: fit-content;
-}
-
-.button a {
-  position: sticky;
-    text-decoration: none !important;
-    color: white;
-}
-
-.button:hover {
-    background-color: orange;
-    color: white;
-    border: none;
-}
-
-.contact-content .buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px; 
-  gap: 10px;
-  
-}
-
-.contact-content .button {
-  display: inline-block;
-  font-size: 24px * 24%;
-  padding: 10px 20px;
-  background-color:  #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  width: fit-content; 
-}
-
-.contact-content .button a {
-  text-decoration: none !important;
-  color: white;
-}
-
-.contact-content .button:hover {
-  background-color: orange;
-  color: white;
-}
-
-  img {
-    clear: right;
-    margin: 0 0 0.66667% 0.66667%;
-  }      
+    scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
