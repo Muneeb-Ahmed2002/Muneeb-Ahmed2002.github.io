@@ -1,17 +1,28 @@
 html{
   scroll-behavior: smooth;
-  scroll-padding-top: var(--scroll-padding);
+  scroll-padding-top: var(--scroll-padding*2);
 }
 
 nav {
-  background: linear-gradient(0deg, transparent,hsl(260, 100%, 20%), hsl(220, 100%, 15%),hsl(220, 100%, 10%));
+  background: linear-gradient(0deg, hsla(260, 100%, 20%, 0.049),  hsl(260, 100%, 20%), hsl(220, 100%, 15%),hsl(220, 100%, 10%));
   text-align: center;
   padding: 30px 0;
-  position: sticky; 
+  position: fixed; 
   top: 0;
   width: 100%; 
   height: fit-content;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-shadow: black;
+}
+
+nav .buttons {
+  /* ... existing styles ... */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 body {
@@ -43,7 +54,12 @@ body {
   }
 
   section {
-    padding-bottom: var(--scroll-padding);
+    padding-top: var(--scroll-padding);
+  }
+
+  section .card{
+    padding-bottom: none;
+    padding-top: var(--reverse-padding);
   }
   .scroll-to-top {
     position: fixed;
@@ -78,13 +94,13 @@ body {
   main h1{
     color: Orange;
   }
-
-  .profile-image {
-    float: right;
-    width: 15%;
+  .home-image {
+    float: left;
+    width: 20%;
     height: auto;
     margin-left: 20px; /* Adjust the margin as needed */
 }
+
 
   .card {
     background-color: transparent;
@@ -96,6 +112,7 @@ body {
     justify-content: center;
     align-items: center; 
     height: 100%;
+    padding-top: var(--reverse-padding);
 }
 
 .contact-content {
@@ -113,9 +130,13 @@ footer {
   }
   .buttons {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
     margin-top: 20px; 
-    gap: 10px;
+    gap: 2em;
+    width: fit-content;
+    height: fit-content;
   }
 
 .button {
@@ -131,6 +152,7 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     width: fit-content;
+    height: fit-content;
 }
 
 .button a {
