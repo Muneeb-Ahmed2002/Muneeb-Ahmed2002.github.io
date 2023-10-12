@@ -198,3 +198,15 @@ footer {
   background-color: orange;
   color: white;
 }
+
+
+.horizontal-image-gallery {
+    display: flex; /* Display images in a row */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.horizontal-image-gallery img {
+    width: 200px; /* Set the width to control the size of the images */
+    height: auto;
+    margin-right: 10px; /* Add spacing between images */
+}
