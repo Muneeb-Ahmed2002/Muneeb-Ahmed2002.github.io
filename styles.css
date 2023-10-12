@@ -205,7 +205,7 @@ footer {
     overflow-x: auto; /* Enable horizontal scrolling */
 }
 
-.horizontal-image-gallery img {
+.vertical-image-gallery img {
     width: 200px; /* Set the width to control the size of the images */
     height: auto;
     margin-right: 10px; /* Add spacing between images */
