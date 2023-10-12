@@ -18,6 +18,12 @@ nav {
   flex-direction: column;
 }
 
+.content-image {
+    position: absolute;
+    visibility: hidden;
+}
+
+
 nav a{
   flex-wrap: wrap;
 }
