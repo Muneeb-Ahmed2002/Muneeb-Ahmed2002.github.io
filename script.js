@@ -45,22 +45,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    centerImage();
-});
 
-function centerImage() {
-    var image = document.querySelector(".content-image");
-    var container = image.parentElement; // Get the parent container of the image
-
-    // Calculate the position to center the image both horizontally and vertically
-    var leftOffset = (container.clientWidth - image.clientWidth) / 2;
-    var topOffset = (container.clientHeight - image.clientHeight) / 2;
-
-    // Set the image's position using CSS
-    image.style.left = leftOffset + "px";
-    image.style.top = topOffset + "px";
-
-    // Make the image visible after positioning it
-    image.style.visibility = "visible";
-}
