@@ -202,7 +202,7 @@ footer {
 
 .vertical-image-gallery {
     height: 200px; /* Set the desired height for the gallery */
-    overflow-y: scroll; /* Enable horizontal scrolling */
+    overflow-x: scroll; /* Enable horizontal scrolling */
 }
 
 .vertical-image-gallery img {
